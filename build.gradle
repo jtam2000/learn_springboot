@@ -1,0 +1,40 @@
+plugins {
+	id 'org.springframework.boot' version '2.4.1'
+	id 'io.spring.dependency-management' version '1.0.10.RELEASE'
+	id 'java'
+}
+
+group = 'com.github.jtam2000'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '11'
+
+repositories {
+	mavenCentral()
+	maven {
+		url "https://packages.confluent.io/maven/"
+	}
+}
+
+dependencies {
+	implementation 'org.apache.commons:commons-math3:3.6.1',
+			'com.fasterxml.jackson.datatype:jackson-datatype-jsr310:2.11.1',
+			'org.apache.avro:avro:1.9.2',
+			'org.apache.kafka:kafka-clients:0.10.0.1',
+			'io.confluent:kafka-avro-serializer:5.3.0',
+			'org.springframework.boot:spring-boot-starter-web'
+
+	testImplementation 'org.apache.commons:commons-math3:3.6.1',
+			'com.fasterxml.jackson.datatype:jackson-datatype-jsr310:2.11.1',
+			'org.apache.avro:avro:1.9.2',
+			'org.apache.kafka:kafka-clients:0.10.0.1',
+			//'org.slf4j:slf4j-nop:1.7.25',
+			'io.confluent:kafka-avro-serializer:5.3.0',
+			'org.springframework.boot:spring-boot-starter-test'
+            //'org.springframework:spring-context:5.2.0.RELEASE'
+            //'org.springframework:spring-beans:5.2.0.RELEASE'
+
+}
+
+test {
+	useJUnitPlatform()
+}
