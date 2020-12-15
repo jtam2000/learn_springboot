@@ -1,2 +1,0 @@
-com/github/jtam2000/initializr/InitializrApplicationTests.java
- com.github.jtam2000.initializr.InitializrApplicationTests

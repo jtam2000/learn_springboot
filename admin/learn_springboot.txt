@@ -1,0 +1,61 @@
+PluralSight: Spring Boot Fundamentals (1hr 38M) 12/11/2020
+Note: other learning notes are in the learn_spring project
+
+Web-application build
+          -reduce boiler-plate code
+          -auto configuration
+TOPIC:
+    -Configuring a Spring MVC App
+    -Develop RESTful API
+    -Build GraphQL server
+    -Make app prod-ready (using Spring Acutator)
+    -Unit and Integration Testing
+
+code for this course:
+    https://gitlab.com/videolearning/spring-fundametals
+
+-Boot has Starter dependencies that it will link in standard configurations packs for you, example:
+    *spring-boot-starter-web
+    *spring-boot-starter-test
+    *spring-boot-starter-data-jpa
+
+[Actuator]: monitor running app, manage HTTP endpoints, Metrics, logs, http trace, health status
+
+[Spring Boot Cli]: uses groovy script for prototyping
+
+[Spring Initializr]:
+    https://start.spring.io/
+
+
+There is a CLI instead of the Spring Initializr website create project wizard
+example: (can be instead with brew installer on mac)
+    //many options for dependencies, builder(gradle/maven) and other properties like project group name: com.myproject
+    .name
+    //example command:
+    spring --version
+    spring init --build=gradle -g=com.github.jtam2000 mytestproject
+
+
+Key Annotation for Spring-Boot;
+
+//this is the single annotation for a springboot project
+// it replaces 3 other spring boot annotation: @SpringBootConfiguration,
+// @EnableAutoConfiguration, and @ComponentScan
+@SpringBootApplication
+
+to use different config files for different environments: dev, test, prod etc
+to apply a specific environment, use a VM option -Dspring.profiles.active={environment}, like this
+ jar -Dspring.profiles.active=test  executableJarFile.jar
+
+
+[Spring-Data JPA] module picks [Hibernate] as its default provider for JPA
+    -it provides Spring library (Component scan) to obviate the need for the [persistence.xml] file for JPA
+    -it scan for any @Entity annotations
+
+
+
+Note: The main application (main()) need to be at the root for the auto component scans
+to work correctly.
+    if you put your main application file in a parallel packages with other support packages
+    it will not work. This is because the component scan starts from the main application package and then scan the
+    Application package and then scan the Sub-packages of the application.

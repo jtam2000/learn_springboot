@@ -1,2 +1,0 @@
-com/github/jtam2000/initializr/InitializrApplication.java
- com.github.jtam2000.initializr.InitializrApplication

@@ -1,4 +1,4 @@
-package com.github.jtam2000.initializr;
+package com.github.jtam2000.application;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
