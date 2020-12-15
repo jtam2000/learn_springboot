@@ -1,9 +1,12 @@
 HELP.md
+.DS_Store
+.run/**
+gradle/.DS_Store
 .gradle
 build/
-!gradle/wrapper/gradle-wrapper.jar
-!**/src/main/**/build/
-!**/src/test/**/build/
+gradle/wrapper/gradle-wrapper.jar
+**/src/main/**/build/
+**/src/test/**/build/
 
 ### STS ###
 .apt_generated
@@ -23,8 +26,8 @@ bin/
 *.iml
 *.ipr
 out/
-!**/src/main/**/out/
-!**/src/test/**/out/
+**/src/main/**/out/
+**/src/test/**/out/
 
 ### NetBeans ###
 /nbproject/private/
@@ -36,7 +39,3 @@ out/
 ### VS Code ###
 .vscode/
 
-.DS_Store
-.run/**
-gradle/.DS_Store
-build/**
