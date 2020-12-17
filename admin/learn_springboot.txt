@@ -59,3 +59,56 @@ to work correctly.
     if you put your main application file in a parallel packages with other support packages
     it will not work. This is because the component scan starts from the main application package and then scan the
     Application package and then scan the Sub-packages of the application.
+
+
+
+------------------------------------------------------------------------------------------------------------------------
+I started the Spring MVC Course to get a better understanding of MVC concepts.  12/17/2020
+
+MVC has 3 parts
+1. Model: the data abstraction (eg. database, cloud persistence)
+2. View: presentation/rendering of the Model
+3. Controller: router that directs Request (converting the request into request for info from the Model)
+            to the backend and returns a Response (in the form of a model) to the requester
+
+   Learning:
+        Model = Data Abstraction ,
+        View = Data Presentation ,
+        Controller = Request Router
+
+simply stated: the controller controls how the model are presented to the view. The
+         controller handles requests and stored state info in models and respond to the request with
+           presentation to the view
+
+        Controller
+       \|/      \|/
+      View     Model
+
+another view is from perspective of Layers.
+        [Presentation Layer](View) <-> [Business Logic](Controller) <--> [Data Layer] (Model)
+         [data place holders] filled in <--data models from response <---> data persistence
+ LEARNING:
+    [3 Spring annotations] for  MVC:
+        @Controller: route request and response, no business logic here
+        @Service:  Verb/action: [Business Logic], [Transactions] , [transformation] of data fo response, object states
+        @Repository: noun/data: [data mappings] to the Data source (same DAO: data access objects for persistence )
+
+
+Terms
+======
+[SPA]               : single page application
+[DispatcherServlet] : entry point into an application
+[Controller]        : is implementation of the Command Pattern (GOF)
+[RequestMapping]    : translating a request into a URL
+[ViewResolver]      : locate the view and ask the presentation server to render it
+[servlet-config]    : configuration file for the application
+[Bean]              : Pojo that is wrapped/configured by Spring
+
+
+Spring MVC Configuration: 4 parts
+1. grade/pom.xml  (for dependencies)
+2. config
+3. java
+4. view
+    webapp/WEB-INF/
+        jsp/greeting.jsp

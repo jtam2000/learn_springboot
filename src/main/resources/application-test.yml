@@ -1,0 +1,36 @@
+# machines
+machines:
+  imacaddress: &IMACS 192.168.1.10
+  macbookpro_address: &MACBOOKPRO 192.168.1.226
+
+
+# logging
+logging:
+    level:
+        org:
+            springframework: WARN   #Debug is another choice
+
+# mysql
+mysql:
+     default:
+          user: &USER jason
+          server: *MACBOOKPRO
+          database: springboot
+     url_prefix: "jdbc:mysql://"
+
+# spring
+spring:
+    datasource:
+          username: *USER
+          password: jason
+          url: "jdbc:mysql://192.168.1.226/springboot"
+    jpa:
+        hibernate:
+            ddl-auto: update
+    thymeleaf:
+        template-loader-path: classpath:/templates
+        suffix: .html
+        cache: off
+
+# for ref only
+# dialect: org.hibernate.dialect.MySQL8Dialect

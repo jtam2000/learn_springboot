@@ -13,7 +13,7 @@ import java.time.LocalDate;
 public class InvestmentUser {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long userID;
 
     private String userName;

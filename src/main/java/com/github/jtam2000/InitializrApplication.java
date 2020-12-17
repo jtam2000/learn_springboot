@@ -8,15 +8,14 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.ComponentScan;
 
 import java.time.LocalDate;
 
 @SpringBootApplication
-@ComponentScan("com.github.jtam2000")
 public class InitializrApplication {
 
     private static final Logger log = LoggerFactory.getLogger(InitializrApplication.class);
+
 
     public static void main(String[] args) {
 
