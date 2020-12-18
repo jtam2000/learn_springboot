@@ -87,11 +87,15 @@ simply stated: the controller controls how the model are presented to the view. 
 another view is from perspective of Layers.
         [Presentation Layer](View) <-> [Business Logic](Controller) <--> [Data Layer] (Model)
          [data place holders] filled in <--data models from response <---> data persistence
+
+
+
  LEARNING:
     [3 Spring annotations] for  MVC:
-        @Controller: route request and response, no business logic here
+        @Controller: route request and response, no business logic here, handles exception from @Service, @Repository
         @Service:  Verb/action: [Business Logic], [Transactions] , [transformation] of data fo response, object states
         @Repository: noun/data: [data mappings] to the Data source (same DAO: data access objects for persistence )
+
 
 
 Terms
@@ -112,7 +116,6 @@ Spring MVC Configuration: 4 parts
 4. view
     webapp/WEB-INF/
         jsp/greeting.jsp
-
 
 [@Controller]
     -http request are handled by Controllers
