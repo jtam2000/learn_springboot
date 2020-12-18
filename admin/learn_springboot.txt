@@ -112,3 +112,72 @@ Spring MVC Configuration: 4 parts
 4. view
     webapp/WEB-INF/
         jsp/greeting.jsp
+
+
+[@Controller]
+    -http request are handled by Controllers
+    -implements a controller object (i.e., web controller), @Controller tells Spring this is the class to
+     look for Responses/Callbacks to http requests.  The Callbacks can be GET, PUT, POST and others and Spring
+     has Annotation for each of these callback types
+     LEARNING: This is known as [Request Mapping] within Controllers
+
+    -@GetMapping("/request") - annotates that an HTTP Get request to "/request" will call the annotated function
+
+      example:
+
+        //LEARNING: the purpose of this function is to return the name of the [VIEW], which is the name of the html page
+                  The @GetMapping ensures that this method is called with there is a [/greeting] http request
+        @GetMapping("/greeting")
+	    public String greeting(@RequestParam(name="name", required=false, defaultValue="World") String functParamName,
+	                            Model model) {
+
+
+		    model.addAttribute("name", name);
+		    return "greeting"; //LEARNING: the return String is the [name of the View]  responsible for rendering
+		                                   the HTML content
+	    }
+
+	@RequestParam - annotates that the function param is a HTTP request parameter, has several options:
+	            -required: if the param is required
+	            -defaultValue: value if it is not provided by in the HTTP request
+	            -name: name of the request parameter
+
+	            @RequestParam binds the value of the query string parameter [name] into
+	            the [functParamName] parameter of the greeting() method.
+
+
+	 Summary: Controllers
+	    1. Provide the callback(which is the response) for a given HTTP request, anntated with @GetMapping
+	    2. the Request can have parameters and they can be bind to the parameter of the Callback, using @RequestParam
+	    3. Must return name of the Response view (html to render the response)
+
+[LEARNING: View Resolver]
+-The Spring controller uses a 'View Resolver' to locate the views by name that is returned from @GetMapping
+-There is ViewResolver object that Spring creates when you use @SpringBootApplication, you can override this
+-You configure the ViewResolver using the Application configuration like this:
+    example:
+            spring:
+                mvc:
+                  view:
+                    prefix: /WEB-INF/jsp/    # LEARNING: Tell SPRING MVC where to look for our HTTP Response [VIEWS]
+                    suffix: .jsp             #           the file suffix of the view page
+                                             #there can be more than 1 Resolver, you can extend via ViewResolver
+                                             # interface, example: [ResourceBundleViewResolver] is an resolver
+                                             # for internationalization functionality
+
+[LEARNING: Interceptors]
+    -process that are preformed before the views are rendered
+    -like International interceptors
+
+[LEARNING: Post-Redirect-Get] [PRG]  for POST requests ONLY
+
+    -helps eliminate form re-submission in the case of a POST request
+        after the post request has succeeded, the server will submit a GET request so that a resubmit is disabled
+    - to have this effect in Spring, you have to return a prefix to the returned VIEW string like this:
+        LEARNING:
+            return "redirect:myView"; //notice "redirect:" before the myView name
+
+
+[LEARNING: Thymeleaf]
+    -lightweight html5 framework instead of using jsp's
+    -recommended templating tool for Spring

@@ -31,6 +31,10 @@ spring:
         template-loader-path: classpath:/templates
         suffix: .html
         cache: off
+    mvc:
+      view:
+        prefix: /WEB-INF/jsp/    # Tell SPRING MVC where to look for our HTTP Response [VIEWS]
+        suffix: .jsp
 
 # for ref only
 # dialect: org.hibernate.dialect.MySQL8Dialect
