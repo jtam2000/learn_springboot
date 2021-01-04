@@ -1,0 +1,48 @@
+PluralSight course: Spring Framework: Aspect Orientated Programming with Spring AOP
+========
+12/22/2020
+AOP = Aspect Orientated Programming
+
+example of Aspect (cross-cutting functionality for an application)
+-logging
+-exception handling
+-security
+-transactions
+-caching
+-legacy application modifications
+
+Key Terms:
+Learning:
+    [Advice] = aspect applied at a JoinPoint
+        [BeforeAdvice]: action executed BEFORE the target method
+        [AroundAdvice]: action at the execution of the target method:
+        [AfterAdvice]:  action executed AFTER the target method
+        [AfterReturning]: post joinpoint execution
+        [AfterThrowing]: post thrown exception
+        [ChainOfAdvices]: list of
+    ...
+    [JoinPoint]: the method where aspect will be applied
+    ....
+    [PointCut]: predicate that matches join points
+    ...
+    [Target Object]: object being adviced by 1 or more aspects
+    [runtime AOP proxy] a wrapper around the target object that introduces additional
+                    methods or attributes to the target object
+    [Introduction]: additional methods or attributes added by the Aspect runtime proxy
+                    to a target object.
+    [Weaving]: Transformation applied by Aspects to the Target Object to create the Advice
+                Weaving is done during run time(For Spring)
+
+Spring AOP:
+    Spring AOP implements Aspect proxy objects in two ways, depending on the inheritance/interface hierarchy
+    of the Target Object:
+
+    for Creating a Aspect Proxy object that extends aspect functionality  to the target object:
+    1. If the Target Object implements an interface:
+        Learning: use [JDK dynamic proxy standard mechanism]
+            Spring will create a Aspect Proxy object by implement the same interface.
+
+    2. If the Target Object DOES NOT implement an interface
+        Learning: use [CGLIB Proxy mechanism]
+            Spring  create a Aspect Proxy object by inheriting/extends from the Target Object
+             if the Target Object is tagged as "final", then this method will not work and you can not create aspect

@@ -184,3 +184,30 @@ Spring MVC Configuration: 4 parts
 [LEARNING: Thymeleaf]
     -lightweight html5 framework instead of using jsp's
     -recommended templating tool for Spring
+
+
+
+[LEARNING: @Valid] validator of input params to Controller mapping methods
+use the Hibernate validator library, instance of hibernate-validator: <org.hibernate.validator:hibernate-validator>
+    this hibernate library has nothing to do with databases, it is for data validation
+-don't use the [JSR 380 interfaces because it can bleed into writing business logic within the interface implementation
+ it is too programmatic, you have to write every line of code. don't use it(teacher recommends)
+
+ example:
+    // LEARNING:             Note: @Valid annotation
+    public String addRegistration(@Valid @ModelAttribute("registration" Registration,
+                                    BindingResult result{
+        if (result.hasErrors()) {
+            System.out.println("error detected in input param");
+        }
+        return "registration";
+
+    }
+
+[LEARNING: Restful service]
+    -use [@RestController] for Rest controllers
+    -use PostMan to test web services
+
+    steps required  for @Valid example:
+        1. you have to annotation for the error in the target object (Registration)
+        2. have to customize the JSP page to render the error detected
